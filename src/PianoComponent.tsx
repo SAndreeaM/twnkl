@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import Key from "./Key";
 
-function Piano() {
+function PianoComponent() {
     // Piano notes and their corresponding key characters
     const notes = [
         { note: "C4", keyChar: "A", position: 0 },
@@ -107,4 +107,4 @@ function Piano() {
     );
 }
 
-export default Piano;
+export default PianoComponent;
