@@ -25,39 +25,19 @@ function Key({
     onMouseEnter,
     onMouseLeave,
     }: Props) {
-        // Change the colour of the key when it is active
-    const currentColour = isActive ? keyColour : type === "black" ? "black" : "white";
+    
+    // Change the colour of the key when it is active
+    const currentColour = isActive ? keyColour : `var(--${type}-key-background-colour)`;
+    const currentTextColour = `var(--${type}-key-text-colour)`;
+    const currentBorderColour = `var(--${type}-key-border-colour)`;
 
     // Style for the key
     const style = {
         backgroundColor: currentColour,
+        color: currentTextColour,
+        borderColor: currentBorderColour,
         left: type === "black" ? `${(position + 0.25) * 80}px` : "auto",
     };
-
-    // Event listener for keyboard events
-    const handleKeyEvent = (event: KeyboardEvent, callback: (note: string) => void) => {
-        if (event.key.toUpperCase() === keyChar.toUpperCase()) {
-            callback(note);
-        }
-    };
-
-    // Event listeners for keyboard events
-    useEffect(() => {
-        // Call onMouseDown when the key is pressed
-        const handleKeyDown = (event: KeyboardEvent) => handleKeyEvent(event, onMouseDown);
-        // Call onMouseUp when the key is released
-        const handleKeyUp = (event: KeyboardEvent) => handleKeyEvent(event, onMouseUp);
-
-        // Add event listener for keydown and keyup
-        window.addEventListener("keydown", handleKeyDown); 
-        window.addEventListener("keyup", handleKeyUp);
-
-        // Remove event listener when the component is unmounted
-        return () => {
-            window.removeEventListener("keydown", handleKeyDown);
-            window.removeEventListener("keyup", handleKeyUp);
-        };
-    }, [keyChar, note, onMouseDown, onMouseUp]);
 
     return (
         <button
@@ -68,6 +48,8 @@ function Key({
             onMouseEnter={() => onMouseEnter(note)}
             onMouseLeave={onMouseLeave}
         >
+            <p>{keyChar}</p>
+            <p>{note}</p>
         </button>
     );
 }

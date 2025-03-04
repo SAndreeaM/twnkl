@@ -1,6 +1,8 @@
 .App {
-    width: 100vw;
-    height: 100vh;    
+    width: 100%;
+    height: 100%;
+    background-color: var(--background-colour);
+    color: var(--text-colour);
 }
 
 .flexbox {
@@ -28,18 +30,18 @@ footer {
 .Key {
     width: 80px;
     height: 240px;
-    border: 1px solid black;
-    background-color: white;
-
+    border: 1.5px solid var(--key-border-colour);
+    background-color: var(--key-background-colour);
+    color: var(--key-text-colour);
     position: relative;
 }
 
 .black-key {
     width: 40px;
     height: 120px;
-    background-color: black;
-    color: white;
-
+    background-color: var(--black-key-background-colour);
+    border: 1.5px solid var(--black-key-border-colour);
+    color: var(--black-key-text-colour);
     position: absolute;
     top: 0;
     z-index: 1;

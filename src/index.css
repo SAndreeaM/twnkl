@@ -7,7 +7,38 @@
     box-sizing: border-box;
 }
 
+.light-mode {
+    --background-colour: #F7F6F1;
+    --text-colour: #2C292D;
+
+    --key-background-colour: white;
+    --key-border-colour: black;
+    --key-text-colour: black;
+
+    --black-key-background-colour: black;
+    --black-key-border-colour: black;
+    --black-key-text-colour: white;
+}
+
+.dark-mode {
+    --background-colour: #2C292D;
+    --text-colour: #F7F6F1;
+
+    --key-background-colour: black;
+    --key-border-colour: white;
+    --key-text-colour: white;
+
+    --black-key-background-colour: white;
+    --black-key-border-colour: white;
+    --black-key-text-colour: black;
+}
+
 body {
     width: 100vw;
     height: 100vh;
+    margin: 0;
+    padding: 0;
+
+    background-color: var(--background-colour);
 }
+
